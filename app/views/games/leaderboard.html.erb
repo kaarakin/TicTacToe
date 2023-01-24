@@ -1,0 +1,46 @@
+<header class="mb-auto">
+  <h1 class="float-md-start mb-0" style="background-color: #1a193c;">TicTacToe 
+  <img src="<%= asset_path 'logo.png' %>" style="width:50px; height: 50px" alt=""/></h1>
+
+  <nav class="nav nav-tabs justify-content-center float-md-end">    
+    <% if current_user %>
+      <a class="nav-link text-white" style="background-color: #59587A" href="<%= root_path %>"><h3>Главная</h3></a>
+      <a class="nav-link text-white" style="background-color: #59587A" href="<%= games_path %>"><h3>Играть</h3></a>
+      <a class="nav-link active text-white" style="background-color: #5754C7" href="<%= leaderboard_path %>"><h3>Список лидеров</h3></a>
+      <a class="nav-link text-white" style="background-color: #59587A"><h3><%= current_user.email %></h3></a>
+      <a class="nav-link text-white" style="background-color: #59587A"><h3><%= button_to "Выход", destroy_user_session_path, method: :delete, data: { turbo: false }, 
+      class: "btn btn-lg", style: "background-color: #2F2D6B; width: 100px; color: white;" %></h3></a>
+    <% end %>
+  </nav>
+</header>
+
+<main class="container px-3 my-auto ">
+  <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex justify-content-center">
+    <div class="alert" style="background-color: #59587A; width: 632px; height: 674px;"><br/>
+      <table class="table table-hover table-dark table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Пользователь</th>
+            <th scope="col">Кол-во побед</th>
+            <th scope="col">Кол-во проигрышей</th>
+            <th scope="col">Кол-во ничьих</th>
+            <th scope="col">Процент побед</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.order(:succes).each_with_index do |user, ind| %>
+          <tr>
+            <th scope="row"><%= ind + 1 %></th>
+            <td><%= user.email %></td>
+            <td><%= user.wins %></td>
+            <td><%= user.looses %></td>
+            <td><%= user.draws %></td>
+            <td><%= user.success %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>

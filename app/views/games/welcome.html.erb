@@ -1,0 +1,37 @@
+<header class="mb-auto">
+  <h1 class="float-md-start mb-0" style="background-color: #1a193c;">TicTacToe 
+  <img src="<%= asset_path 'logo.png' %>" style="width:50px; height: 50px" alt=""/></h1>
+
+  <nav class="nav nav-tabs justify-content-center float-md-end">    
+    <% if current_user %>
+      <a class="nav-link active text-white" style="background-color: #5754C7" href="<%= root_path %>"><h3>Главная</h3></a>
+      <a class="nav-link text-white" style="background-color: #59587A" href="<%= games_path %>"><h3>Играть</h3></a>
+      <a class="nav-link text-white" style="background-color: #59587A" href="<%= leaderboard_path %>"><h3>Список лидеров</h3></a>
+      <a class="nav-link text-white" style="background-color: #59587A"><h3><%= current_user.email %></h3></a>
+      <a class="nav-link text-white" style="background-color: #59587A"><h3><%= button_to "Выход", destroy_user_session_path, method: :delete, data: { turbo: false }, 
+      class: "btn btn-lg", style: "background-color: #2F2D6B; width: 100px; color: white;" %></h3></a>
+    <% else %>
+      <a class="nav-link active text-white" style="background-color: #5754C7" href="<%= root_path %>"><h3>Главная</h3></a>
+      <a class="nav-link text-white" style="background-color: #59587A" href="<%= games_path %>"><h3>Играть</h3></a>
+      <a class="nav-link text-white" style="background-color: #59587A" href="<%= leaderboard_path %>"><h3>Список лидеров</h3></a>
+      <a class="nav-link text-white" style="background-color: #59587A" href="<%= new_user_registration_path %>"><h3>Регистрация</h3></a>
+      <a class="nav-link text-white" style="background-color: #59587A" href="<%= new_user_session_path %>"><h3>Вход</h3></a>
+    <% end %>
+  </nav>
+</header>
+
+<main class="container px-3 my-auto">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+      <h1 class="title">
+        <span class="title-part line-1" style="color: #B7B5FB">Крестики-</span>
+        <span class="title-part line-2" style="color: #B7B5FB">Нолики</span>
+      </h1><br/>
+      <h1>Браузерная игра</h1>
+    </div>
+  </div>
+</main>
+
+<footer class="mt-auto text-white-50">
+  <p>Made by <a href=" " class="text-white">Каракин Даниил ИУ6-33Б</a>.</p>
+</footer>

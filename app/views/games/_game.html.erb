@@ -1,0 +1,47 @@
+<div class="alert alert-light", style="width: 335px; margin-left: auto; margin-right: auto">
+  <% 3.times do |row| %>
+    <div class="play_row", style="width: 300px; margin-left: auto; margin-right: auto;">
+      <% 3.times do |col| %>
+        <span class="play_cell", style="width: 100px; margin-left: auto; margin-right: auto;">
+          <% if !game[row, col].nil? %>
+            <% if game[row, col] == 'x'%>
+              <img src="<%= asset_path 'cross.png' %>" style="width:70px; height: 70px" alt=""/>
+            <% elsif game[row, col] == 'o' %>
+              <img src="<%= asset_path 'zero.png' %>" style="width:70px; height: 70px" alt=""/>
+            <% end %>
+          <% else %>
+            <% if !game.game_over? %>
+              <%= button_to game.current_symbol, game_moves_path(game), params: { row: row, col: col }, method: :post, class: "btn btn-light", 
+              style: "width: 90px; height: 90px; text-indent: -9000px;" %>
+            <% else %>
+              <h1></h1>
+            <% end %>
+          <% end %>
+        </span>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<% if game.game_over? %>
+  <h1>Игра окончена.</h1>
+  <% if game.win_sym == 'draw' %>
+    <h1>Ничья!</h1>
+  <% elsif game.win_sym == 'x' %>
+    <h1>Крестики победили!</h1>
+  <% elsif game.win_sym == 'o' %>
+    <h1>Нолики победили!</h1>
+  <% end %>
+
+  <br/><br/>
+  <%= form_tag('/games', method: "post") do %>
+    <%= submit_tag("Играть заново", id: "start-btn", name: "btnn", class: "btn btn-lg", style: "background-color: #5754C7; width: 200px")%>
+  <% end %><br/>
+
+<% else %>
+  <% if game.current_symbol == 'x' %>
+    <h1>Ваш ход</h1>
+  <% else %>
+    <h1><%= ['Противник думает...', 'Компьютер высчитывает шансы...', 'Оппонент делает свой ход...', 'Ещё чуть-чуть...'].sample %></h1>
+  <% end %>
+<% end %>

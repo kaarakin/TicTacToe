@@ -1,0 +1,32 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+.title {
+  font-size: 7vw;
+}
+.title .title-part {
+  font-weight: 600;
+  font-family: 'Fredoka One', sans-serif;
+  text-transform: uppercase;
+  display: block;
+  color: #FFFFD9;
+}
+.title .title-part.line-1 {
+  text-shadow: #1a193c 1px 1px
+}
+.title .title-part.line-2 {
+  text-shadow: #1a193c 1px 1px
+}

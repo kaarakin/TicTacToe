@@ -1,0 +1,37 @@
+<header class="mb-auto">
+  <h1 class="float-md-start mb-0" style="background-color: #1a193c;">TicTacToe 
+  <img src="<%= asset_path 'logo.png' %>" style="width:50px; height: 50px" alt=""/></h1>
+
+  <nav class="nav nav-tabs justify-content-center float-md-end">    
+    <% if current_user %>
+      <a class="nav-link text-white" style="background-color: #59587A" href="<%= root_path %>"><h3>Главная</h3></a>
+      <a class="nav-link active text-white" style="background-color: #5754C7" href="<%= games_path %>"><h3>Играть</h3></a>
+      <a class="nav-link text-white" style="background-color: #59587A" href="<%= leaderboard_path %>"><h3>Список лидеров</h3></a>
+      <a class="nav-link text-white" style="background-color: #59587A"><h3><%= current_user.email %></h3></a>
+      <a class="nav-link text-white" style="background-color: #59587A"><h3><%= button_to "Выход", destroy_user_session_path, method: :delete, data: { turbo: false }, 
+      class: "btn btn-lg", style: "background-color: #2F2D6B; width: 100px; color: white;" %></h3></a>
+    <% end %>
+  </nav>
+</header>
+
+<main class="container px-3 my-auto ">
+  <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex justify-content-center">
+    <div class="alert" style="background-color: #59587A; width: 632px; height: 674px;"><br/>
+      <div class="alert alert-light", style="width: 335px; margin-left: auto; margin-right: auto">
+        <% 3.times do |row| %>
+          <div class="play_row", style="width: 300px; margin-left: auto; margin-right: auto;">
+            <% 3.times do |col| %>
+              <span class="play_cell", style="width: 100px; margin-left: auto; margin-right: auto;">
+                <h1></h1>
+              </span>
+            <% end %>
+          </div>
+        <% end %>
+      </div><br/><br/><br/>
+      <%= form_tag('/games', method: "post") do %>
+        <h1>Чтобы начать, нажмите на кнопку</h1>
+        <%= submit_tag("Начать игру", id: "start-btn", name: "btnn", class: "btn btn-lg", style: "background-color: #5754C7; width: 200px")%>
+      <% end %>
+    </div>
+  </div>
+</main>

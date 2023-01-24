@@ -1,0 +1,13 @@
+.play_row {
+  display: flex;
+  width: 100px;
+  height: 100px;
+}
+
+.play_cell {
+  flex-grow: 1;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
