@@ -1,24 +1,25 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Веб-приложение на Rails 7 "Крестики-нолики"
 
-Things you may want to cover:
+# Как запустить
 
-* Ruby version
+Для того чтобы запустить приложение, необходимо выполнить следующие шаги:
 
-* System dependencies
+1. Установить зависимости Gemfile в проект с помощью команды:
 
-* Configuration
+```console
+bundle install
+```
 
-* Database creation
+2. Совершить "накат" миграций с помощью команды:
 
-* Database initialization
+```console
+rails db:migrate
+```
 
-* How to run the test suite
+3. Запусить сервер Rails с помощью команды:
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```console
+rails s
+```
