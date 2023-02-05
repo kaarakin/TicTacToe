@@ -18,7 +18,7 @@ bundle install
 rails db:migrate
 ```
 
-3. Запусить сервер Rails с помощью команды:
+3. Запустить сервер Rails с помощью команды:
 
 ```console
 rails s
