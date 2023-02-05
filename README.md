@@ -8,18 +8,18 @@
 
 1. Установить зависимости Gemfile в проект с помощью команды:
 
-```console
-bundle install
-```
+  ```console
+  bundle install
+  ```
 
 2. Совершить "накат" миграций с помощью команды:
 
-```console
-rails db:migrate
-```
+  ```console
+  rails db:migrate
+  ```
 
 3. Запустить сервер Rails с помощью команды:
 
-```console
-rails s
-```
+  ```console
+  rails s
+  ```
